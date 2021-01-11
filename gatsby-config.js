@@ -5,6 +5,16 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    `gatsby-plugin-lodash`,
+    {
+      resolve: "gatsby-source-google-sheets",
+      options: {
+         spreadsheetId: "1MZVkD9QNCHTv5cKOJ6DXrKv_LzoEw1PzAk2tP7aVx7w",
+         worksheetTitle: "Sheet1",
+         credentials: JSON.parse(`${process.env.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS}`)
+         // credentials: require("./credentials/client_secret.json")
+     }
+   },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
